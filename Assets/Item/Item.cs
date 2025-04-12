@@ -13,11 +13,11 @@ public class Item : MonoBehaviour
     [SerializeField] private int tempSpecDefense;
     [SerializeField] private List<Move> itemMoves;
     [SerializeField] private List<Person.EffectType> itemTypes;
-    [SerializeField] private EquipType equipType;
+    public EquipType equipType;
     [SerializeField] private string idleAnimation;
 
     public enum EquipType
     {
-        RIGHT_HAND, LEFT_HAND, HEAD
+        RIGHT_HAND, LEFT_HAND, HEAD, RIGHT_DOMINANT, LEFT_DOMINANT
     }
 }

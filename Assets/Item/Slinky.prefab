@@ -425,6 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7130664334532725821}
   - component: {fileID: 4376170864279248993}
+  - component: {fileID: -6096927015513305058}
   m_Layer: 0
   m_Name: Slinky
   m_TagString: Untagged
@@ -493,7 +494,20 @@ MonoBehaviour:
   - {fileID: 6103974803955468038, guid: 5292d5dcb8499564ea48a98163e2d926, type: 3}
   - {fileID: 8091526314949325999, guid: d8a9c2115e9a80141adf5693b345965c, type: 3}
   itemTypes: 0c000000
-  equipType: 0
+  equipType: 3
+  idleAnimation: 
+--- !u!114 &-6096927015513305058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851730940118734383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d4266e303b7ac42a777c064fd24af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2114794456508772283
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +935,7 @@ GameObject:
   - component: {fileID: 741094043361266683}
   - component: {fileID: 2834530403049706438}
   m_Layer: 0
-  m_Name: Head
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

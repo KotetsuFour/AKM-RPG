@@ -53,6 +53,15 @@ MonoBehaviour:
   - 0.5
   - 1
   hitGameValues: 7300000073000000
+  moveAnimations: []
+  timesOfMoveAnimations: []
+  camerasToDisplay: 
+  timesForCameraDisplays: []
+  totalMoveTime: 0
+  moveTimer: 0
+  user: {fileID: 0}
   fullDamage: 20
   usingPhysAttack: 1
   usingSpecAttack: 0
+  timeOfTargetReact: 0
+  preferredTargetReactAnimation: 
