@@ -64,7 +64,6 @@ public class Person : NotificationHandler
                 secondHandItem = StaticData.findDeepChild(item.transform, "Left");
                 secondHandIsLeft = true;
                 Transform right_hand = StaticData.findDeepChild(transform, "RightHand");
-                item.transform.localPosition = right_hand.localPosition;
                 item.transform.rotation = right_hand.rotation;
                 item.transform.SetParent(right_hand);
             }
@@ -73,31 +72,28 @@ public class Person : NotificationHandler
                 secondHandItem = StaticData.findDeepChild(item.transform, "Right");
                 secondHandIsLeft = false;
                 Transform left_hand = StaticData.findDeepChild(transform, "LeftHand");
-                item.transform.localPosition = left_hand.localPosition;
                 item.transform.rotation = left_hand.rotation;
                 item.transform.SetParent(left_hand);
             }
             else if (item.equipType == Item.EquipType.RIGHT_HAND)
             {
                 Transform right_hand = StaticData.findDeepChild(transform, "RightHand");
-                item.transform.localPosition = right_hand.localPosition;
                 item.transform.rotation = right_hand.rotation;
                 item.transform.SetParent(right_hand);
             }
             else if (item.equipType == Item.EquipType.LEFT_HAND)
             {
                 Transform left_hand = StaticData.findDeepChild(transform, "LeftHand");
-                item.transform.localPosition = left_hand.localPosition;
                 item.transform.rotation = left_hand.rotation;
                 item.transform.SetParent(left_hand);
             }
             else if (item.equipType == Item.EquipType.HEAD)
             {
                 Transform head = StaticData.findDeepChild(transform, "Head");
-                item.transform.localPosition = head.localPosition;
                 item.transform.rotation = head.rotation;
                 item.transform.SetParent(head);
             }
+            item.transform.localPosition = Vector3.zero;
         }
     }
     void Update()
