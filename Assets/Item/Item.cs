@@ -16,6 +16,11 @@ public class Item : MonoBehaviour
     public EquipType equipType;
     [SerializeField] private string idleAnimation;
 
+    public List<Move> getMoves()
+    {
+        return itemMoves;
+    }
+
     public enum EquipType
     {
         RIGHT_HAND, LEFT_HAND, HEAD, RIGHT_DOMINANT, LEFT_DOMINANT

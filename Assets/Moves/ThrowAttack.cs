@@ -7,6 +7,8 @@ public class ThrowAttack : StandardAttack
     [SerializeField] private string launchableName;
     [SerializeField] private float durationOfLaunch;
     [SerializeField] private float timeOfRelease;
+    [SerializeField] private bool returnToThrower;
+    [SerializeField] private float durationOfReturn;
     // Start is called before the first frame update
     void Start()
     {

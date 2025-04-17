@@ -31,13 +31,12 @@ public class GameNotification
     }
     public void allow()
     {
-        /*
         if (!disputable)
         {
-            stage = Stage.ANIMATING;
+            stage = Stage.ACTING;
         }
         permissionsQueue = new List<Permission>();
-        List<NotificationHandler> handlers = StaticData.board.getAllPermissionNeeded();
+        List<NotificationHandler> handlers = StaticData.board.getAllReactors();
         foreach (NotificationHandler handler in handlers)
         {
             Permission permit = handler.allowNotification(this);
@@ -65,19 +64,9 @@ public class GameNotification
         }
         if (!denied)
         {
-            stage = Stage.ANIMATING;
-        }
-        stage = Stage.DENIED;
-        */
-    }
-    public void animate()
-    {
-        /*
-        if (getCause() == null || getCause().animate(this))
-        {
             stage = Stage.ACTING;
         }
-        */
+        stage = Stage.DENIED;
     }
     public void act()
     {
@@ -104,14 +93,14 @@ public class GameNotification
 
     public enum Nature
     {
-        GAME_START, TURN_START, PLAY_PHASE, TURN_END, GAME_END, FINISH, STANDBY, PLAY_CARD, FINALIZE_PLAY_PHASE, SHUFFLE,
-        REVEAL_CARD, REGISTER_MOVE, ON_REVEAL, ONGOING, LOCATION_EFFECT,
+        GAME_START, ROUND_START, TURN_START, PLAY_PHASE, WAIT, TURN_END, ROUND_END, GAME_END, FINISH, STANDBY,
+        PLAYER_ACTION, LOCATION_EFFECT,
         PERM_ALTER_POWER, TEMP_ALTER_POWER, ALTER_COST,
         CREATE_CARD, RELOCATE_CARD, CHANGE_LOCATION, ALTER_ONGOING, TRANSFORM_CARD
     }
     public enum Stage
     {
-        PERMISSION, ANIMATING, ACTING, COMPLETED, DENIED
+        PERMISSION, ACTING, COMPLETED, DENIED
     }
 
     public class Permission

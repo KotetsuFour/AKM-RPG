@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class StaticData
 {
+    public static Gameboard board;
+    public static int numPlayers;
+    public static string playerName;
+    public static string playerLoginId;
+
     public static Transform findDeepChild(Transform parent, string childName)
     {
         LinkedList<Transform> kids = new LinkedList<Transform>();

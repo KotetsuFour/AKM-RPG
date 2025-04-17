@@ -34,11 +34,41 @@ public class Person : NotificationHandler
     private Transform secondHandItem;
     private bool secondHandIsLeft;
 
+    public string myPlayer;
+
     void Start()
     {
         equip();
     }
-
+    public List<List<Move>> getAllCategories()
+    {
+        List<List<Move>> ret = new List<List<Move>>();
+        if (movesCat1 != null && movesCat1.Count > 0)
+        {
+            ret.Add(movesCat1);
+        }
+        if (movesCat2 != null && movesCat2.Count > 0)
+        {
+            ret.Add(movesCat2);
+        }
+        if (movesCat3 != null && movesCat3.Count > 0)
+        {
+            ret.Add(movesCat3);
+        }
+        if (movesCat4 != null && movesCat4.Count > 0)
+        {
+            ret.Add(movesCat4);
+        }
+        if (item != null)
+        {
+            List<Move> itemMoves = item.getMoves();
+            if (itemMoves != null && itemMoves.Count > 0)
+            {
+                ret.Add(itemMoves);
+            }
+        }
+        return ret;
+    }
     public void playAnimation(string anim)
     {
         StaticData.findDeepChild(transform, "model").GetComponent<Animator>().Play(anim);
@@ -49,6 +79,11 @@ public class Person : NotificationHandler
         FIRE, WATER, EARTH, AIR, LIGHTNING, ICE, LIFE, LIGHT, DARK, LEARNED_MAGIC, INNATE_MAGIC,
         MARTIAL_ARTS, NOVELTY_WEAPON, FIREARMS, TRADITIONAL_WEAPONS, HIGH_DIMENSION, DREAM_DIMENSION,
         TECHNOLOGY, SPIRIT
+    }
+
+    public bool isAlive()
+    {
+        return currentHP > 0;
     }
 
     public void equip()
