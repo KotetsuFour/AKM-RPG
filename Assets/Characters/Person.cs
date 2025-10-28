@@ -30,11 +30,14 @@ public class Person : NotificationHandler
     public List<Move> movesCat4;
 
     public Item item;
+    [SerializeField] private Ability ability; //Object, not prefab
 
     private Transform secondHandItem;
     private bool secondHandIsLeft;
 
     public string myPlayer;
+
+    private PositionState position;
 
     void Start()
     {
@@ -69,9 +72,27 @@ public class Person : NotificationHandler
         }
         return ret;
     }
+    public override List<GameNotification> getResponse(GameNotification note)
+    {
+        List<GameNotification> ret = new List<GameNotification>();
+        if (ability != null)
+        {
+            ret.AddRange(ability.getResponse(note));
+        }
+        return ret;
+    }
     public void playAnimation(string anim)
     {
         StaticData.findDeepChild(transform, "model").GetComponent<Animator>().Play(anim);
+    }
+
+    public PositionState getPosition()
+    {
+        return position;
+    }
+    public void setPosition(PositionState position)
+    {
+        this.position = position;
     }
 
     public enum EffectType

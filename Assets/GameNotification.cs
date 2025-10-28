@@ -10,6 +10,8 @@ public class GameNotification
     private NotificationHandler cause;
 
     private int[] intVals;
+    private PositionState[] positionVals;
+    private Person[] personVals;
 
     private List<Permission> permissionsQueue;
     private bool denied;
@@ -28,6 +30,14 @@ public class GameNotification
     public void setInts(int[] vals)
     {
         intVals = vals;
+    }
+    public void setPositionStates(PositionState[] vals)
+    {
+        positionVals = vals;
+    }
+    public void setPeople(Person[] vals)
+    {
+        personVals = vals;
     }
     public void allow()
     {
@@ -89,13 +99,23 @@ public class GameNotification
     {
         return intVals;
     }
+    public PositionState[] getPositions()
+    {
+        return positionVals;
+    }
+    public Person[] getPeople()
+    {
+        return personVals;
+    }
 
 
     public enum Nature
     {
         GAME_START, ROUND_START, TURN_START, PLAY_PHASE, WAIT, TURN_END, ROUND_END, GAME_END, FINISH, STANDBY,
         PLAYER_ACTION, LOCATION_EFFECT,
-        PERM_ALTER_POWER, TEMP_ALTER_POWER, ALTER_COST,
+        SET_POSITION, MOVE_TO_POSITION, START_ATTACK, FINISH_ATTACK,
+        ALTER_HP, ALTER_ABSORPTION, ALTER_PHYS_ATT, ALTER_SPEC_ATT, ALTER_SKILL,
+        ALTER_SPEED, ALTER_PHYS_DEF, ALTER_SPEC_DEF,
         CREATE_CARD, RELOCATE_CARD, CHANGE_LOCATION, ALTER_ONGOING, TRANSFORM_CARD
     }
     public enum Stage

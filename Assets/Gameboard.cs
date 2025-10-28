@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Gameboard : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Gameboard : MonoBehaviour
     private int winner;
     private List<List<Move>> allMoveCategories;
     private Move selectedMove;
+    private List<Move> activeMoves;
 
     private LinkedList<GameNotification> actionQueue;
     private GameArchive archive;
@@ -35,6 +37,7 @@ public class Gameboard : MonoBehaviour
     private SelectionMode selectionMode;
     [SerializeField] private LayerMask positionLayer;
     [SerializeField] private LayerMask personLayer;
+    [SerializeField] private Transform menu;
 
     public List<NotificationHandler> getAllReactors()
     {
@@ -50,6 +53,18 @@ public class Gameboard : MonoBehaviour
         foreach (Person p in party3)
         {
             ret.Add(p);
+        }
+        foreach (Move move in activeMoves)
+        {
+            if (move.isActive())
+            {
+                ret.Add(move);
+            }
+            else
+            {
+                activeMoves.Remove(move);
+                Destroy(move.gameObject);
+            }
         }
         ret.Add(location);
 
@@ -124,6 +139,27 @@ public class Gameboard : MonoBehaviour
                     processNotification();
                     actionQueue.RemoveFirst();
                 }
+            }
+        }
+
+        if (selectionMode == SelectionMode.STANDBY || selectionMode == SelectionMode.MOVE)
+        {
+            //TODO move camera
+            if (Input.GetKey(KeyCode.W))
+            {
+
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+
             }
         }
 
@@ -213,6 +249,7 @@ public class Gameboard : MonoBehaviour
     }
     public void actOnDecision()
     {
+        activeMoves.Add(selectedMove);
         if (selectedMove.hasHitGame)
         {
             //TODO setup Hitgame

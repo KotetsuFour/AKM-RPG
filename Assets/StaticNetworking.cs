@@ -38,7 +38,6 @@ public static class StaticNetworking
             all.ConnectionData
         );
         NetworkManager.Singleton.StartHost();
-        StaticData.player = 0;
         waiting = true;
     }
 
@@ -60,7 +59,6 @@ public static class StaticNetworking
             all.HostConnectionData
         );
         NetworkManager.Singleton.StartClient();
-        StaticData.player = 1;
         StaticData.numPlayers = 2;
     }
 

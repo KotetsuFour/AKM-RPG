@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Move : MonoBehaviour
+public abstract class Move : NotificationHandler
 {
     public static float HITGAME_ERROR_MARGIN = 0.1f;
 
@@ -127,6 +127,11 @@ public abstract class Move : MonoBehaviour
         return false;
     }
 
+    public bool isActive()
+    {
+        return selectionMode != SelectionMode.DONE;
+    }
+
     public enum CameraTargetSetting
     {
         NONE, ACTOR, TARGET, BOARD, PROJECTILE
@@ -137,6 +142,6 @@ public abstract class Move : MonoBehaviour
     }
     public enum SelectionMode
     {
-        STANDBY, HITGAME, ACTING
+        STANDBY, HITGAME, ACTING, DONE
     }
 }

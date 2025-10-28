@@ -37,4 +37,10 @@ public static class StaticData
         //TODO
     }
 
+    public static bool areAllies(string player1, string player2)
+    {
+        //TODO
+        return false;
+    }
+
 }
